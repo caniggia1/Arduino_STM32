@@ -68,7 +68,14 @@ extern "C" {
  * STM32F103 microcontrollers set below won't take effect.
  */
 
-#if defined(MCU_STM32F103T8)
+#if defined(MCU_STM32F103T6)
+#   define STM32_NR_GPIO_PORTS          2
+#   define STM32_SRAM_END               ((void*)0x20002800)
+#   define NR_GPIO_PORTS                STM32_NR_GPIO_PORTS
+#   define STM32_F1_LINE                STM32_F1_LINE_PERFORMANCE
+#   define STM32_LOW_DENSITY
+
+#elif defined(MCU_STM32F103T8)
 #   define STM32_NR_GPIO_PORTS          2
 #   define STM32_SRAM_END               ((void*)0x20005000)
 #   define NR_GPIO_PORTS                STM32_NR_GPIO_PORTS
@@ -177,7 +184,12 @@ extern "C" {
      /* All supported performance line MCUs have a USB peripheral */
 #    define STM32_HAVE_USB              1
 
-#    ifdef STM32_MEDIUM_DENSITY
+#    ifdef STM32_LOW_DENSITY
+#       define STM32_NR_INTERRUPTS      43
+#       define STM32_TIMER_MASK         0x0E /* TIMER1--TIMER3 */
+#       define STM32_HAVE_FSMC          0
+#       define STM32_HAVE_DAC           0
+#    elif defined(STM32_MEDIUM_DENSITY)
 #       define STM32_NR_INTERRUPTS      43
 #       define STM32_TIMER_MASK         0x1E /* TIMER1--TIMER4 */
 #       define STM32_HAVE_FSMC          0
