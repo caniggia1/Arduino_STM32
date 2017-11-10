@@ -38,7 +38,9 @@ extern "C" {
 
 #include <libmaple/libmaple.h>
 
-#if defined(STM32_MEDIUM_DENSITY)
+#if defined(STM32_LOW_DENSITY)
+#define BKP_NR_DATA_REGS 10
+#elif defined(STM32_MEDIUM_DENSITY)
 #define BKP_NR_DATA_REGS 10
 #elif defined(STM32_HIGH_DENSITY)
 #define BKP_NR_DATA_REGS 42
