@@ -78,8 +78,13 @@ extern const stm32_pin_info PIN_MAP[BOARD_NR_GPIO_PINS] = {
     {&gpiob,   NULL, NULL,  3, 0, ADCx}, /* PB3 */
     {&gpiob,   NULL, NULL,  4, 0, ADCx}, /* PB4 */
     {&gpiob,   NULL, NULL,  5, 0, ADCx}, /* PB5 */
+#if defined(STM32_LOW_DENSITY)
+    {&gpiob, NULL, NULL,  6, 1, ADCx}, /* PB6 */
+    {&gpiob, NULL, NULL,  7, 2, ADCx}, /* PB7 */
+#else
     {&gpiob, &timer4, NULL,  6, 1, ADCx}, /* PB6 */
-    {&gpiob, &timer4, NULL,  7, 2, ADCx}, /* PB7 */	
+    {&gpiob, &timer4, NULL,  7, 2, ADCx}, /* PB7 */
+#endif
 };
 
 extern const uint8 boardPWMPins[BOARD_NR_PWM_PINS] __FLASH__ = {
