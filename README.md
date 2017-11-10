@@ -1,4 +1,5 @@
 Added support for STM32F103T6(32kB Flash, 10kB Ram), Low-density performance line.
+==================================================================================
 
 Arduino STM32  
 =============  
