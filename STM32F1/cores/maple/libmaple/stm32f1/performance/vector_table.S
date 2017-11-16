@@ -82,7 +82,9 @@ __stm32_vector_table:
 	.long	__irq_tim1_cc
 	.long	__irq_tim2
 	.long	__irq_tim3
+#if !defined(STM32_LOW_DENSITY)
 	.long	__irq_tim4
+#endif
 	.long	__irq_i2c1_ev
 	.long	__irq_i2c1_er
 	.long	__irq_i2c2_ev
