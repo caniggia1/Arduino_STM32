@@ -506,9 +506,11 @@ void __irq_tim3(void) {
     dispatch_general(TIMER3);
 }
 
+#if !defined(STM32_LOW_DENSITY)
 void __irq_tim4(void) {
     dispatch_general(TIMER4);
 }
+#endif
 
 #if defined(STM32_HIGH_DENSITY) || defined(STM32_XL_DENSITY)
 void __irq_tim5(void) {
