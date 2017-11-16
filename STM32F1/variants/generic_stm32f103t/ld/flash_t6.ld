@@ -30,4 +30,4 @@ REGION_ALIAS("REGION_BSS", ram);
 REGION_ALIAS("REGION_RODATA", rom);
 
 /* Let common.inc handle the real work. */
-INCLUDE common.inc
+INCLUDE common_low_density.inc
